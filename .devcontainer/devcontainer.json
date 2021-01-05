@@ -1,0 +1,12 @@
+// For format details, see https://aka.ms/devcontainer.json.
+{
+	"name": "Ubuntu",
+	"build": {
+		"dockerfile": "Dockerfile",
+	},
+	"settings": {
+		"terminal.integrated.shell.linux": "/usr/bin/zsh"
+	},
+
+	"extensions": [],
+}
