@@ -1,7 +1,16 @@
-FROM ubuntu:focal
+# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.154.2/containers/javascript-node/.devcontainer/base.Dockerfile
 
-WORKDIR /home/
+# [Choice] Node.js version: 14, 12, 10
+ARG VARIANT="14-buster"
+FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
 
-COPY . .
+# [Optional] Uncomment this section to install additional OS packages.
+# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+#     && apt-get -y install --no-install-recommends <your-package-list-here>
 
-RUN bash ./setup.sh
+# [Optional] Uncomment if you want to install an additional version of node using nvm
+# ARG EXTRA_NODE_VERSION=10
+# RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
+
+# [Optional] Uncomment if you want to install more global node modules
+RUN su node -c "npm install -g typescript eslint standard serve"
